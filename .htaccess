@@ -1,4 +1,4 @@
-AuthUserFile /home/xs223210/taku-chan.jp/public_html/IsiiKadan/.htpasswd
+AuthUserFile /home/xs223210/taku-chan.jp/public_html/isiikadan/.htpasswd
 AuthName "Input your ID and Password."
 AuthType Basic
 require valid-user
