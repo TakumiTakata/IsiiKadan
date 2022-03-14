@@ -1,0 +1,127 @@
+@charset "utf-8";
+@use 'mixin' as *;
+@use "extend";
+
+//message-----------------
+.message {
+    @include bgImg('bg.png');
+    -ms-writing-mode: tb-rl;
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+    letter-spacing: 0.8em;
+    width: 100%;
+    height: 681px;
+    display: flex;
+    justify-content: center;
+    @include mq('tb') {
+      -ms-writing-mode: rl-tb;
+      writing-mode: horizontal-tb;
+      text-orientation: mixed;
+      height: auto;
+    }
+
+    &__contentsWrap {
+      @extend %contentsWrap;
+      padding-top: 150px;
+      padding-right: 6.15vw;
+      display: flex;
+      flex-direction: column;
+      @include mq('tb') {
+        padding-top: 100px;
+        padding-right: 0;
+      }
+
+      & p {
+        margin-left: 5.95vw;
+        @include mq('tb') {
+          margin-left: 10vw;
+        }
+        @include mq('sp') {
+          margin-left: 0;
+        }
+      }
+    }
+    &__titleBox {
+      letter-spacing: 1.35em;
+      @include mq('tb') {
+        letter-spacing: .75em;
+      }
+      @include mq('sp') {
+        letter-spacing: .5em;
+      }
+
+      & span {
+        display: inline-block;
+        font-size: 2.8rem;
+        @include mq('tb') {
+          line-height: 1.5em;
+          font-size: 2.5rem;
+        }
+        @include mq('sp') {
+          line-height: 1.25em;
+          font-size: 2.2rem;
+        }
+      }
+
+      & span:first-child {
+        margin-left: 1em;
+        text-indent: -3em;
+        @include mq('tb') {
+          margin-left: 0;
+          text-indent: 0;
+        }
+      }
+    }
+
+
+    &__textBox {
+      line-height: 1.05;
+      letter-spacing: 0.58em;
+      @include mq('tb') {
+        line-height: 2.75em;
+        letter-spacing: .3em;
+        margin-top: 20px;
+      }
+      @include mq('sp') {
+        line-height: 2em;
+        letter-spacing: .05em;
+        margin-top: 20px;
+      }
+
+      & span {
+        display: inline-block;
+        font-size: 1.6rem;
+        margin-left: 2.2rem;
+        @include mq('tb') {
+          margin-left: 3vw;
+          font-size: 1.6rem;
+        }
+        @include mq('sp') {
+          margin-left: 2vw;
+          font-size: 1.3rem;
+        }
+      }
+
+      & span:last-child {
+        @include mq('pc') {
+          margin-left: 0;
+        }
+      }
+    }
+
+    &__from {
+      display: inline-block;
+      font-size: 2.2rem;
+      text-align: end;
+      padding-bottom: 114px;
+      letter-spacing: .45em;
+      @include mq('tb') {
+        margin-right: 3vw;
+        margin-top: 4vw;
+        padding-bottom: 80px;
+      }
+      @include mq('sp') {
+        padding-bottom: 60px;
+      }
+    }
+  }

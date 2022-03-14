@@ -1,0 +1,20 @@
+@charset "utf-8";
+@use "mixin" as *;
+@use "extend";
+
+.oheya {
+  .subFirstV {
+    @include bgImg("oheya-header.png");
+  }
+@include mq('sp') {
+    .subItem:nth-child(1) .subItem__contents {
+        @include bgImg("oheya01.jpg");
+    }
+    .subItem:nth-child(2) .subItem__contents {
+        @include bgImg("oheya02.jpg");
+    }
+    .subItem:nth-child(3) .subItem__contents {
+        @include bgImg("oheya03.jpg");
+    }
+}
+}

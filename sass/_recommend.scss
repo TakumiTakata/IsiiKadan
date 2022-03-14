@@ -1,0 +1,121 @@
+@charset "utf-8";
+@use 'mixin' as *;
+@use "extend";
+
+//recommend-------------------
+.recommend {
+    @include bgImg('bg02.png');
+    margin-top: 4vw;
+    &__contentsWrap {
+      @extend %contentsWrap;
+      padding-top: 3.12vw;
+      padding-bottom: 7vw;
+      @include mq('tb') {
+        padding-top: 40px;
+      }
+    }
+    
+    // タイトル
+    &__titleWrap {
+      @extend %titleWrap;
+    }
+    
+    &__icon {
+      @extend %icon;
+    }
+    
+    &__icon img {
+      @extend %iconImg;
+    }
+    
+    &__title {
+      @extend %title;
+    }
+    
+    // コンテンツ
+    &__itemWrap {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 3.2vw;
+      @include mq('tb') {
+        display: block;
+      }
+      @include mq('sp') {
+        margin-top: 40px;
+      }
+    }
+    
+    &__item {
+      width: 17.25vw;
+      min-width: 260px;
+      @include mq('tb') {
+        display: flex;
+        width: 100%;
+        margin-top: 60px;
+      }
+      @include mq('sp') {
+        display: block;
+        margin-top: 40px;
+        padding: 12px 6px;
+        background: rgba(255, 255, 255, .5);
+      }
+    }
+    
+    &__img {
+      height: 0;
+      padding-bottom: 63.14%;
+      position: relative;
+      @include mq('tb') {
+        width: 50%;
+        padding-bottom: calc(66.6% * 0.5); //origin-ratio / width
+      }
+      @include mq('sp') {
+        width: 100%;
+        padding-bottom: 65%;
+      }
+    }
+    
+    &__img img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    &__textBox {
+      @include mq('tb') {
+        flex: 1;
+        margin-left: 20px;
+      }
+      @include mq('sp') {
+        margin: 0 10px;
+      }
+      & br {
+        @include mq('tb') {
+          display: none;
+        }
+      }
+    }
+
+    &__itemTitle {
+      font-size: 2rem;
+      margin-top: 26px;
+      line-height: 3.2rem;
+      @include mq('sp') {
+        line-height: 2.5rem;
+        font-size: 1.8rem;
+      }
+    }
+    
+    &__itemText {
+      font-size: 1.6rem;
+      margin-top: 22px;
+      line-height: 3.2rem;
+      @include mq('sp') {
+        line-height: 2.5rem;
+        font-size: 1.4rem;
+      }
+    }
+    
+  }
+  

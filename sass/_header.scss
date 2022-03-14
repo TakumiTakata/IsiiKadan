@@ -1,0 +1,224 @@
+@charset "utf-8";
+@use 'mixin' as *;
+
+//header--------------------
+.header {
+  position: absolute;
+  width: 100%;
+  color: #fff;
+  z-index: 11;
+  
+  &.fixed {
+    position: fixed;
+    background: #fff;
+    color: #000;
+    box-shadow: 2px 0 20px rgba(0, 0, 0, 0.15);
+  }
+
+  &__inner {
+    display: flex;
+    height: 80px;
+    align-items: center;
+    @include mq('tb') {
+    height: 60px;
+    }
+  }
+  &__logo {
+    height: 40px;
+    margin-left: 20px;
+    @include mq("tb") {
+      height: 34px;
+    }
+    & img {
+      height: 100%;
+    }
+  }
+
+  &__menu {
+    @include mq("tb") {
+      display: none;
+    }
+    & ul {
+      display: flex;
+    }
+    & li {
+      margin-left: 30px;
+      &:first-child {
+        margin-left: 6.1vw;
+      }
+    }
+    & li a {
+      font-size: 1.6em;
+    }
+  }
+
+  &__reserveBtn {
+    width: 170px;
+    height: 54px;
+    background: #978f10;
+    color: #fff;
+    margin-right: 20px;
+    margin-left: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @include mq("tb") {
+      display: none;
+    }
+  }
+
+  &__reserveIcon {
+    margin-right: 10px;
+  }
+
+  &__reserveText {
+    font-size: 1.6em;
+  }
+
+  // ハンバーガーメニューボタン
+  &__ham {
+    display: block;
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    z-index: 11;
+    right: 13px;
+    top: calc((80px - 40px) / 2); // header-height - height / 2
+    cursor: pointer;
+    text-align: center;
+    @include mq('tb') {
+      top: calc((60px - 40px) / 2); // header-height - height / 2
+    }
+    &.fixed {
+      position: fixed;
+    }
+    @include mq("pc") {
+      display: none;
+    }
+    & span {
+      display: block;
+      position: absolute;
+      width: 30px;
+      height: 2px;
+      left: 6px;
+      background: #fff;
+      -webkit-transition: 0.3s ease-in-out;
+      -moz-transition: 0.3s ease-in-out;
+      transition: 0.3s ease-in-out;
+    }
+    &.fixed  span{
+      background: #555;
+    }
+    &.fixed.active  span{
+      background: #fff;
+    }
+    & span:nth-child(1) {
+      top: 10px;
+    }
+    & span:nth-child(2) {
+      top: 20px;
+    }
+    & span:nth-child(3) {
+      top: 30px;
+    }
+
+    /* ナビ開いてる時のバツボタン */
+    &.active span:nth-child(1) {
+      top: 16px;
+      left: 6px;
+      -webkit-transform: rotate(-45deg);
+      -moz-transform: rotate(-45deg);
+      transform: rotate(-45deg);
+    }
+
+    &.active span:nth-child(2),
+    &.active span:nth-child(3) {
+      top: 16px;
+      -webkit-transform: rotate(45deg);
+      -moz-transform: rotate(45deg);
+      transform: rotate(45deg);
+    }
+  }
+
+  /* ナビメニュー内 */
+  &__hamMenu {
+    position: fixed;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    color: #fff;
+    background: rgba(50, 50, 50, 0.9);
+    text-align: center;
+    width: 100vw;
+    height: 100vh;
+    opacity: 0;
+    transition: opacity 0.6s ease, visibility 0.6s ease;
+    visibility: hidden;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+    &.active {
+      opacity: 1;
+      visibility: visible;
+    }
+    @include mq('pc') {
+      display: none;
+    }
+   }
+
+  &__hamList {
+    margin: 0 auto;
+    padding: 0;
+    width: 100%;
+  }
+
+  &__hamItem {
+    list-style-type: none;
+    width: 80%;
+    max-width: 300px;
+    height: 15vh;
+    margin: 0 auto;
+    margin-top: 18px;
+    transition: 0.4s all;
+    border-radius: 4px;
+    &:nth-child(1) {
+      @include bgImg('oheya-header.png');
+    }
+    &:nth-child(2) {
+      @include bgImg('menu-header.png');
+      
+    }
+    &:nth-child(3) {
+      @include bgImg('onsen-header.png');
+      
+    }
+    &:first-child {
+      margin-top: calc(80px + 18px);
+    }
+
+    & a {
+      display: block;
+      width: 100%;
+      height: 100%;
+      text-align: right;
+      font-size: 2rem;
+      line-height: 1;
+      padding: 10px;
+      color: #fff;
+      text-decoration: none;
+      text-shadow: 0 0 6px #000;
+    }
+  }
+  
+
+  &__reserveBtnHam {
+    @extend .header__reserveBtn;
+    @include mq("tb") {
+      display: block;
+      margin: 20px auto 0;
+    }
+  }
+}
+
+.subHeader {
+  @extend .header;
+}

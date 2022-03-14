@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="favicon.ico">
+
+    <!-- Primary Meta Tags -->
+    <title>お部屋 - 石井花壇 | 温海温泉旅館【公式サイト】</title>
+    <meta name="title" content="お部屋 - 石井花壇 | 温海温泉旅館【公式サイト】">
+    <meta name="description" content="日本古来の素材と現代的表現を併せ持つ温泉旅館、石井花壇。
+伝統的「和」の息づく空間で、至極のひとときをお過ごしください。">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.taku-chan.jp/isiikadan/">
+    <meta property="og:title" content="お部屋 - 石井花壇 | 温海温泉旅館【公式サイト】">
+    <meta property="og:description" content="日本古来の素材と現代的表現を併せ持つ温泉旅館、石井花壇。
+伝統的「和」の息づく空間で、至極のひとときをお過ごしください。">
+    <meta property="og:image" content="https://www.taku-chan.jp/isiikadan/images/ogp-image.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.taku-chan.jp/isiikadan/">
+    <meta property="twitter:title" content="お部屋 - 石井花壇 | 温海温泉旅館【公式サイト】">
+    <meta property="twitter:description" content="日本古来の素材と現代的表現を併せ持つ温泉旅館、石井花壇。
+伝統的「和」の息づく空間で、至極のひとときをお過ごしください。">
+    <meta property="twitter:image" content="https://www.taku-chan.jp/isiikadan/images/ogp-image.jpg">
+
+    <!-- flatpicker導入 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+    <!-- Aos.js導入 -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+
+
+  <body>
+    <header class="subHeader fixed">
+      <div class="header__inner">
+        <div class="header__logo">
+          <a href="index.html">
+            <img src="icons/sub-header-logo.png" alt="石井花壇ホーム" />
+          </a>
+        </div>
+
+        <nav class="header__menu">
+          <ul>
+            <li><a href="#">お部屋</a></li>
+            <li><a href="menu.html">お料理</a></li>
+            <li><a href="onsen.html">温泉</a></li>
+          </ul>
+        </nav>
+
+        <button class="header__reserveBtn" role="button" data-micromodal-trigger="reserve-modal">
+          <span class="header__reserveIcon">
+            <img src="icons/carender.png" alt="カレンダー" />
+          </span>
+          <span class="header__reserveText"> 宿泊予約 </span>
+        </button>
+
+        <div class="header__ham js-hamburger fixed">
+          <span></span>
+          <span></span>
+          <span></span>
+          <!-- <p>メニュー</p> -->
+        </div>
+
+        <nav class="header__hamMenu js-hamMenu">
+          <ul class="header__hamList" id="menu">
+            <li class="header__hamItem">
+              <a href="#">お部屋</a>
+            </li>
+            <li class="header__hamItem">
+              <a href="menu.html">お料理</a>
+            </li>
+            <li class="header__hamItem">
+              <a href="onsen.html">温泉</a>
+            </li>
+            <li class="header__hamItem">
+              <button class="header__reserveBtnHam" role="button" data-micromodal-trigger="reserve-modal">
+                <span class="header__reserveIcon">
+                  <img src="icons/carender.png" alt="カレンダー" />
+                </span>
+                <span class="header__reserveText"> 宿泊予約 </span>
+              </button>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <div id="reserve-modal" aria-hidden="true" class="modal">
+      <div class="modal__overlay" tabindex="-1" data-micromodal-close>
+        <form action="">
+          <div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="modal-1-title">
+            <div class="modal__headerWrap">
+              <h2 class="modal__title">宿泊予約</h2>
+              <button class="modal__close" aria-label="Close modal" data-micromodal-close>
+                <img src="icons/close-btn.png" alt="閉じるボタン">
+              </button>
+            </div>
+            <div class="modal__wrap">
+              <hr class="modal__hr">
+              <label for="reserve-name" class="modal__label">お名前</label>
+              <input type="text" id="reserve-name" class="modal__input" placeholder="例）山田太郎">
+              <label for="reserve-email" class="modal__label">メールアドレス</label>
+              <input type="text" id="reserve-email" class="modal__input" placeholder="例：Example@example.com">
+              <label for="reserve-plan" class="modal__label">ご希望プラン<span>（空いているプランのみ表示されます）</span></label>
+              <select id="reserve-plan" class="modal__input" placeholder="プランを選択してください">
+                <option hidden>選択してください</option>
+                <option value="plan1">①【期間限定】海辺の四季旬菜、贅沢美味懐石プラン</option>
+                <option value="plan2">②平日に優雅に楽しむ、特別宿泊プラン</option>
+                <option value="plan3">③設計貸切露天と個室会席を満喫できるファミリープラン</option>
+              </select>
+              <label for="reserve-date" class="modal__label">日時選択</label>
+              <input type="text" id="reserve-date" class="modal__input flatpicker" placeholder="日時を選択してください">
+              <input type="submit" class="modal__submit" value="送信する">
+            </div>
+            <script>
+              flatpickr('.flatpicker', {
+                minDate: 'today',
+                mode: 'range',
+                dateFormat: 'm月d日',
+                conjunction: ' 〜 '
+              });
+            </script>
+          </div>
+        </form>
+      </div>
+    </div>
+    <main class="subMain oheya">
+      <article>
+        <div class="subFirstV subFirstV">
+          <h1 class="subFirstV__title">お部屋</h1>
+        </div>
+        <section class="subContents">
+          <div class="contentsWrap">
+            <div class="breadcrumb">
+              <ul class="breadcrumb__list" itemscope itemtype="https://schema.org/BreadcrumbList">
+                <li class="breadcrumb__item" itemprop="itemListElement" itemscope
+                  itemtype="https://schema.org/ListItem">
+                  <a itemprop="item" href="https://www.taku-chan.jp/isiikadan/"><span itemprop="name">トップ</span></a>
+                  <meta itemprop="position" content="1" />
+                </li>
+                <span>&nbsp;&gt;&nbsp;</span>
+                <li class="breadcrumb__item" itemprop="itemListElement" itemscope
+                  itemtype="https://schema.org/ListItem">
+                  <a itemprop="item" href="https://www.taku-chan.jp/isiikadan/oheya.index"><span
+                      itemprop="name">お部屋</span></a>
+                  <meta itemprop="position" content="2" />
+                </li>
+              </ul>
+            </div>
+            <div class="subMessage">
+              <p class="subMessage__text">
+                創業より受け継がれてきた石井花壇の和の造り<br />温海の雄大な絶景を堪能していただけるように設計された客室<br />ゆるやかに流れ行く時間に身を委ねて
+              </p>
+            </div>
+            <div class="subItemBox">
+              <div class="subItem">
+                <div class="subItem__img" data-aos="fade-up" data-aos-once="true" data-aos-duration="1300">
+                  <img src="images/oheya01.jpg" alt="温泉付き客室" />
+                </div>
+                <div class="subItem__contents">
+                  <div class="subItem__inner" data-aos="fade-up" data-aos-once="true" data-aos-duration="1300"
+                    data-aos-delay="300">
+                    <h2 class="subItem__title">温泉付き客室</h2>
+                    <p class="subItem__text">
+                      温海の源泉かけ流し露天風呂付き客室になります。<br />
+                      あなただけの上質な安らぎのひとときを。
+                    </p>
+                    <p class="subItem__caution">
+                      ＊部屋数に限りがございます。<br />
+                      ＊洗い場はないため、お体を先に大浴場でお流しになって頂く必要があります。
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="subItem">
+                <div class="subItem__img" data-aos="fade-up" data-aos-once="true" data-aos-duration="1300">
+                  <img src="images/oheya02.jpg" alt="お庭園付き客室" />
+                </div>
+                <div class="subItem__contents">
+                  <div class="subItem__inner" data-aos="fade-up" data-aos-once="true" data-aos-duration="1300"
+                    data-aos-delay="300">
+                    <h2 class="subItem__title">庭園付き客室</h2>
+                    <p class="subItem__text subItem__text">
+                      庭園付きの客室になります。<br />
+                      お庭を見ながら、ほっとするひとときをお過ごしください。
+                    </p>
+                    <p class="subItem__caution subItem__caution">
+                      ＊お庭は複数のお客様と囲む形になります。<br />
+                      ＊部屋数に限りがあります。<br />
+                      ＊ご希望の方は「お抹茶/500円」をルームサービスさせていただきます。
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="subItem">
+                <div class="subItem__img" data-aos="fade-up" data-aos-once="true" data-aos-duration="1300">
+                  <img src="images/oheya03.jpg" alt="一般客室" />
+                </div>
+                <div class="subItem__contents">
+                  <div class="subItem__inner" data-aos="fade-up" data-aos-once="true" data-aos-duration="1300"
+                    data-aos-delay="300">
+                    <h2 class="subItem__title">一般客室</h2>
+                    <p class="subItem__text">
+                      最もベーシックな客室になります。伝統の中にモダンさを取り入れた<br />
+                      内装となっており、とても過ごしやすくしていただけます。
+                    </p>
+                    <p class="subItem__caution">
+                      ＊全室お部屋より日本海を望むことができます。
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </article>
+    </main>
+    <footer class="footer">
+      <ul class="footer__nav">
+        <li class="footer__navItem"><a href="oheya.html">お部屋</a></li>
+        <li class="footer__navItem"><a href="menu.html">お料理</a></li>
+        <li class="footer__navItem"><a href="onsen.html">温泉</a></li>
+      </ul>
+      <div class="footer__icon">
+        <a href="#">
+          <img src="icons/footer-logo.png" alt="ロゴ" />
+        </a>
+      </div>
+      <div class="footer__info">
+        <p class="footer__infoText">
+          <span>〒000-0000</span>
+          <span class="footer__infoAddress">山形県鶴岡市xxxxxxxxxxx</span>
+        </p>
+        <p class="footer__infoText">
+          <span>TEL.000-0000-0000</span>
+          <span>FAX.00-0000-0000</span>
+        </p>
+      </div>
+      <div class="footer__label">
+        <p class="footer__labelText">Copyright © 石井花壇 All Rights Reserved.</p>
+      </div>
+    </footer>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+    <!-- original js -->
+    <script src="js/common.js"></script>
+
+    <!-- micro modal -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script src="https://unpkg.com/micromodal/dist/micromodal.min.js"></script>
+    <script>
+      MicroModal.init({
+        disableScroll: true
+      });
+
+      AOS.init();
+    </script>
+
+
+  </body>
+
+</html>

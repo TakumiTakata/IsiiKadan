@@ -1,0 +1,136 @@
+@charset "utf-8";
+@use "mixin" as *;
+@use "extend";
+
+//news-----------------------
+.news {
+  &__contentsWrap {
+    @extend %contentsWrap;
+    padding-top: 3.1vw;
+    padding-bottom: 3.1vw;
+    @include mq("tb") {
+      padding-top: 30px;
+      padding-bottom: 30px;
+    }
+  }
+  
+  // タイトル
+  &__titleWrap {
+    @extend %titleWrap;
+  }
+  &__icon {
+    @extend %icon;
+  }
+  &__icon img {
+    @extend %iconImg;
+  }
+  &__title {
+    @extend %title;
+  }
+
+  &__btnWrap {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+    @include mq('sp') {
+      margin-top: 30px;
+    }
+
+    & :first-child {
+      margin-right: 53px;
+    }
+    & :nth-child(2) {
+      margin-right: 23px;
+    }
+  }
+
+  &__btn {
+    font-size: 1.6rem;
+    &.active {
+      text-decoration: underline;
+    }
+  }
+
+
+  // アイテム
+  &__itemWrap {
+    display: none;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    height: calc(150px + 150px + 130px);
+    margin-top: 46px;
+    @include mq('sp') {
+      margin-top: 20px;
+    }
+    @include mq("tb") {
+      height: auto;
+    }
+    &.active {
+      display: flex;
+    }
+  }
+
+  &__item {
+    display: flex;
+    width: 48%;
+    background: #f6f6f6;
+    padding: 15px 40px 15px 12px;
+    margin-bottom: 20px;
+    @include mq("tb") {
+      width: 100%;
+      padding: 10px;
+    }
+    @include mq('sp') {
+      padding: 8px;
+    }
+    &:nth-child(n + 5) {
+      //下側のアイテム
+      @include mq("pc") {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  &__itemIcon {
+    width: 103px;
+    height: 100px;
+    @include mq('sp') {
+      width: 18vw;
+      height: 18vw;
+    }
+    & img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__itemText {
+    margin-left: 30px;
+    flex: 1;
+    @include mq('sp') {
+      margin-left: 10px;
+    }
+  }
+
+  &__itemDate {
+    font-size: 1.4rem;
+    @include mq('sp') {
+      font-size: 1rem;
+    }
+  }
+
+  &__itemContents {
+    font-size: 1.6rem;
+    line-height: 2em;
+    @include mq('sp') {
+      font-size: 1.2rem;
+      line-height: 1.5;
+    }
+    & br {
+      @include mq('sp') {
+        display: none;
+      }
+    }
+  }
+}

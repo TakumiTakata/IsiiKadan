@@ -1,0 +1,71 @@
+@charset "utf-8";
+@use "mixin" as *;
+@use "extend";
+
+.onsen {
+  .subFirstV {
+    @include bgImg("onsen-header.png");
+  }
+  .subItemBox {
+    padding-bottom: 96.5px;
+  }
+
+  @include mq("sp") {
+    .subItem:nth-child(1) .subItem__contents {
+      @include bgImg("onsen01.jpg");
+    }
+    .subItem:nth-child(2) .subItem__contents {
+      @include bgImg("onsen02.jpg");
+    }
+  }
+}
+
+// 温泉>効能
+.kounou {
+  margin-top: 8.15vw;
+  & hr {
+    display: block;
+    width: 100%;
+    height: 1px;
+    border: none;
+    background-color: #e7e7e7;
+  }
+
+  &__title {
+    font-size: 2.6rem;
+    line-height: 3.2rem;
+    text-align: center;
+    margin-top: 4.8vw;
+  }
+
+  &__inner {
+    width: 45.83vw;
+    margin: 2.4vw auto 0;
+    @include mq("tb") {
+      width: 80%;
+    }
+    @include mq("sp") {
+      width: 95%;
+    }
+  }
+
+  &__list {
+    display: flex;
+    font-size: 1.5rem;
+    line-height: 1.5em;
+    padding: 13px 0;
+    & .list__title {
+      width: 25%;
+    }
+    & .list__text {
+      font-size: 1.5rem;
+      flex: 1;
+    }
+    & hr {
+      margin: 9px 0;
+    }
+  }
+  & .barEnd {
+    margin-top: 74px;
+  }
+}

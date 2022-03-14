@@ -1,0 +1,7 @@
+AuthUserFile /home/xs223210/taku-chan.jp/public_html/IsiiKadan/.htpasswd
+AuthName "Input your ID and Password."
+AuthType Basic
+require valid-user
+<Files ~ "^.(htpasswd|htaccess)$">
+  deny from all
+</Files>

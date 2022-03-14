@@ -1,0 +1,57 @@
+@charset "utf-8";
+@use 'mixin' as *;
+
+
+%contentsWrap {
+    width: 61.45vw;
+    min-width: 960px;
+    height: 100%;
+    margin: 0 auto;
+    @include mq('tb') {
+      width: 100%;
+      min-width: auto;
+      height: auto;
+      padding: 0 5vw;
+    }
+    @include mq('sp') {
+      padding: 0 10px;
+
+    }
+  }
+
+
+%titleWrap {
+  width: 100%;
+  text-align: center;
+}
+
+%icon {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  @include mq('tb') {
+    width: 36px;
+    height: 36px;
+  }
+  @include mq('sp') {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+%iconImg {
+  width: 100%;
+}
+
+%title {
+  font-size: 3.6rem;
+  margin-top: 20px;
+  @include mq('tb') {
+    font-size: 3rem;
+    margin-top: 15px;
+  }
+  @include mq('tb') {
+    font-size: 2.4rem;
+    margin-top: 10px;
+  }
+}

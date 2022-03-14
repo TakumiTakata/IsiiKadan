@@ -1,0 +1,132 @@
+@charset "utf-8";
+@use "mixin" as *;
+@use "extend";
+
+//footer-----------------------
+.footer {
+  @include bgImg("bg03.png");
+  // ナビ
+  &__nav {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    padding-top: 3.33vw;
+    @include mq("tb") {
+      padding-top: 60px;
+    }
+    @include mq("sp") {
+      padding-top: 40px;
+    }
+  }
+
+  &__navItem {
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+    letter-spacing: 0.8em;
+    margin-right: 34px;
+    font-size: 1.8rem;
+    @include mq("tb") {
+      letter-spacing: 0.65em;
+      font-size: 1.7rem;
+    }
+    @include mq("sp") {
+      letter-spacing: 0.5em;
+      margin-right: 30px;
+      font-size: 1.6rem;
+    }
+    &:first-child {
+      margin-right: 0;
+    }
+  }
+
+  // タイトルロゴ
+  &__icon {
+    width: 145px;
+    height: 92px;
+    margin: 0 auto;
+    margin-top: 4vw;
+    & img {
+      width: 100%;
+    }
+    @include mq("tb") {
+      width: 130px;
+      margin-top: 6vw;
+    }
+    @include mq("sp") {
+      width: 115px;
+      margin-top: 8vw;
+    }
+  }
+
+  &__info {
+    margin-top: 3.75vw;
+    text-align: center;
+    @include mq('tb') {
+      margin-top: 40px;
+    }
+    @include mq('sp') {
+      margin-top: 30px;
+    }
+  }
+
+  &__infoText {
+    font-size: 1.6rem;
+    @include mq('tb') {
+      font-size: 1.4rem;
+    }
+    @include mq('sp') {
+      font-size: 1.2rem;
+    }
+
+    &:last-child {
+      margin-top: 23px;
+      @include mq('tb') {
+        margin-top: 20px;
+      }
+      @include mq('sp') {
+        margin-top: 16px;
+      }
+    }
+
+    & span:first-child {
+      margin-right: 20px;
+      @include mq('sp') {
+        margin-right: 10px;
+      }
+    }
+  }
+
+  &__infoAddress {
+    letter-spacing: 0.2em;
+  }
+
+  &__label {
+    background: #000;
+    margin-top: 3vw;
+    @include mq('tb') {
+      margin-top: 60px;
+    }
+    @include mq('sp') {
+      margin-top: 40px;
+    }
+  }
+
+  &__labelText {
+    font-size: 1.2rem;
+    color: #fff;
+    padding: 23px 0 25px 0;
+    text-align: center;
+    @include mq('tb') {
+      padding: 20px 0 22px 0;
+      font-size: 1.1rem;
+    }
+    @include mq('tb') {
+      padding: 10px 0 12px 0;
+      font-size: 1rem;
+    }
+  }
+}
+
+.subFooter {
+  margin-top: 7.81vw;
+}

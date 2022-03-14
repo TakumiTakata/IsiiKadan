@@ -1,0 +1,21 @@
+@charset "utf-8";
+@use "mixin" as *;
+@use "extend";
+
+.menu {
+  .subFirstV {
+    @include bgImg("menu-header.png");
+  }
+
+  @include mq("sp") {
+    .subItem:nth-child(1) .subItem__contents {
+      @include bgImg("menu01.jpg");
+    }
+    .subItem:nth-child(2) .subItem__contents {
+      @include bgImg("menu02.jpg");
+    }
+    .subItem:nth-child(3) .subItem__contents {
+      @include bgImg("menu03.jpg");
+    }
+  }
+}

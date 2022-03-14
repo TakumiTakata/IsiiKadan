@@ -1,0 +1,562 @@
+@charset "utf-8";
+@use 'mixin' as *;
+@use "extend";
+
+//firstView------------------
+@keyframes anime {
+  0% {
+        opacity: 0;
+    }
+    17% {  // (18s / 3s * 100)
+        opacity: 1;
+    }
+    33% {  // (18s / 6s * 100)
+        opacity: 1;
+    }
+    50% {  // (18s / 9s * 100)
+        opacity: 0;
+        transform: scale(1.1) ;//拡大率
+         z-index:1;
+    }
+    100% { opacity: 0 }
+}
+
+.firstV {
+  position: relative;
+  &__imgBox {
+    height: 55.8vw;
+    overflow: hidden;
+    position: relative;
+  }
+  &__img {
+    z-index: 2;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+    left: 0;
+    top: 0;
+    -webkit-animation: anime 18s 0s infinite;
+    animation: anime 18s 0s infinite;
+
+    &:nth-of-type(2) {
+      -webkit-animation-delay: 6s;
+      animation-delay: 6s;
+    }
+
+    &:nth-of-type(3) {
+      -webkit-animation-delay: 12s;
+      animation-delay: 12s;
+    }
+  }
+  &__text {
+    color: #fff;
+    -ms-writing-mode: tb-rl;
+    writing-mode: vertical-rl;
+    width: 100vw;
+    font-weight: 800;
+    font-size: 3.4rem;
+    line-height: 2.5em;
+    letter-spacing: 0.24em;
+    position: absolute;
+    top: 33.55%;
+    right: 25.12%;
+    z-index: 10;
+  }
+}
+
+//message-----------------
+.message {
+  background: url(../images/bg.png) center center / cover no-repeat;
+  -ms-writing-mode: tb-rl;
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+  letter-spacing: 0.8em;
+  width: 100%;
+  height: 681px;
+  display: flex;
+  justify-content: center;
+  &__contentsWrap {
+    @extend %contentsWrap;
+    padding-top: 150px;
+    padding-right: 6.15vw;
+    display: flex;
+    flex-direction: column;
+    & p {
+      margin-left: 5.95vw;
+    }
+  }
+  &__titleBox {
+    letter-spacing: 1.35em;
+    & span {
+      display: inline-block;
+      font-size: 2.8rem;
+    }
+    & span:first-child {
+      margin-left: 1em;
+      text-indent: -3em;
+    }
+  }
+  &__textBox {
+    letter-spacing: 0.58em;
+    line-height: 1.05;
+    & span {
+      display: inline-block;
+      font-size: 1.6rem;
+      margin-left: 2.2rem;
+    }
+    & span:last-child {
+      margin-left: 0;
+    }
+  }
+  &__from {
+    display: inline-block;
+    font-size: 2.2rem;
+    text-align: end;
+    padding-bottom: 114px;
+    letter-spacing: .45em;
+  }
+}
+
+//service-------------------
+.service {
+  &__itemwrap {
+    display: flex;
+    margin-top: 6.35vw;
+    &:first-child {
+      margin-top: 5.2vw;
+    }
+    &:nth-child(2) {
+      flex-direction: row-reverse;
+    }
+    &:nth-child(2) .service__contents {
+      margin-right: auto;
+      margin-left: 21.25%;
+    }
+  }
+  &__img {
+    width: 54.3vw;
+    height: 28.25vw;
+    position: relative;
+    overflow: hidden;
+    & img {
+      width: 100%;
+      position: absolute;
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+    }
+  }
+  &__contents {
+    margin-left: 7.15%;
+  }
+  &__title {
+    font-size: 3.6rem;
+    line-height: 1.72em;
+    margin-top: 21px;
+    &--2nd {
+      margin-top: 41px;
+    }
+  }
+  &__text {
+    font-size: 1.6rem;
+    margin-top: 2.7vw;
+    line-height: 2em;
+  }
+  &__btn {
+    width: 200px;
+    height: 56px;
+    border: 1px solid #707070;
+    margin-top: 3.5vw;
+    &:hover {
+      background: #eee;
+    }
+    &--2nd {
+      margin-top: 1.75vw;
+    }
+  }
+  &__btn a {
+    font-size: 1.6rem;
+    display: flex;
+    justify-content: center;
+    line-height: 56px;
+  }
+}
+
+//recommend-------------------
+.recommend {
+  background: url(../images/bg02.png) center center / cover no-repeat;
+  margin-top: 4vw;
+  &__contentsWrap {
+    @extend %contentsWrap;
+    padding-top: 3.12vw;
+    padding-bottom: 7vw;
+  }
+  // タイトル
+  &__titleWrap {
+    width: 100%;
+    text-align: center;
+  }
+  &__icon {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+  }
+  &__icon img {
+    width: 100%;
+  }
+  &__title {
+    font-size: 3.6rem;
+    margin-top: 20px;
+  }
+  // コンテンツ
+  &__itemWrap {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 3.2vw;
+  }
+  &__item {
+    width: 17.25vw;
+    min-width: 260px;
+  }
+  &__img {
+    height: 0;
+    padding-bottom: 63.14%;
+    position: relative;
+  }
+  &__img img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  &__itemTitle {
+    font-size: 2rem;
+    margin-top: 26px;
+    line-height: 3.2rem;
+  }
+  &__text {
+    font-size: 1.6rem;
+    margin-top: 22px;
+    line-height: 3.2rem;
+  }
+}
+
+//news-----------------------
+.news {
+  &__contentsWrap {
+    @extend %contentsWrap;
+    padding: 3.1vw 0;
+  }
+  // タイトル
+  &__titleWrap {
+    @extend .recommend__titleWrap;
+  }
+  &__titleIcon {
+    @extend .recommend__icon;
+  }
+  &__title {
+    @extend .recommend__title;
+  }
+  
+  &__btnWrap {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+    & :first-child {
+      margin-right: 53px;
+    }
+    & :nth-child(2) {
+      margin-right: 23px;
+    }
+  }
+  &__btn {
+    font-size: 1.6rem;
+    &.active {
+      text-decoration: underline;
+    }
+  }
+  
+  // アイテム
+  &__itemWrap {
+    display: none;
+    column-count: 2;
+    margin-top: 46px;
+    &.active {
+      display: block;
+    }
+  }
+  &__item {
+    display: flex;
+    width: 29.7vw;
+    background: #f6f6f6;
+    padding: 15px 12px;
+    margin-bottom: 20px;
+    &:nth-child(n + 4) {//右側のアイテム
+      margin-left: 1vw;
+    }
+    &:nth-child(3n) {//下側のアイテム
+      margin-bottom: 0;
+    }
+
+  }
+  &__icon {
+    width: 103px;
+    height: 100px;
+    & img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  &__text {
+    margin-left: 30px;
+    flex: 1;
+  }
+  &__data {
+    font-size: 1.4rem;
+  }
+  &__contents {
+    font-size: 1.6rem;
+    line-height: 2em;
+  }
+}
+
+//access-----------------------
+.access {
+  background: url(../images/bg.png) center center / cover no-repeat;
+  &__contentsWrap {
+    @extend %contentsWrap;
+    padding: 3.12vw 0 5.4vw 0;
+  }
+  // タイトル
+  &__titleWrap {
+    @extend .recommend__titleWrap;
+  }
+  &__titleIcon {
+    @extend .recommend__icon;
+  }
+  &__icon img {
+    width: 100%;
+  }
+  &__title {
+    @extend .recommend__title;
+  }
+
+  // 住所
+  & .address {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 4vw;
+    position: relative;
+    &__img {
+      width: 55.6%;
+      padding-bottom: 31.35%;
+      height: 0;
+      position: relative;
+      & img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        position: absolute;
+      }
+    }
+    &__contents {
+      width: 44.4%;
+      padding-left: 4.32vw;
+    }
+    &__contents p:last-child {
+      width: 29.6vw;
+    }
+    &__tag {
+      font-size: 1.6rem;
+      font-weight: bold;
+      line-height: 2em;
+      margin-top: 8px;
+      &:first-child {
+        margin-top: 10px;
+      }
+    }
+    &__text {
+      font-size: 1.6rem;
+      line-height: 2em;
+      margin-top: 8px;
+      white-space: nowrap;
+    }
+  }
+  // マップ
+  &__map {
+    width: 41vw;
+    height: 30.83vw;
+    margin: 69px auto 0 auto;
+    & iframe {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+
+
+// ---------------------------------------
+// 下層ページ
+// ---------------------------------------
+
+.subMain {
+  padding-top: 80px;
+}
+
+// 下層ファーストビュー
+.subFirstV {
+  height: 500px;
+  &.subFirstV--oheya {
+    @include bgImg(oheya-header);
+  }
+  &.subFirstV--menu {
+    @include bgImg(menu-header);
+  }
+  &.subFirstV--onsen {
+    @include bgImg(onsen-header);
+  }
+  &__title {
+    color: #fff;
+    font-size: 3.4rem;
+    text-align: center;
+    line-height: 500px; //subFv-height
+  }
+}
+// 下層コンテンツ全体
+.subContents {
+  & .contentsWrap {
+    @extend %contentsWrap;
+  }
+  & .breadcrumb ul {
+    display: flex;
+    margin-top: 36px;
+    & span {
+      font-size: 1.6rem;
+    }
+  }
+  & .subMessage {
+    margin-top: 4.6vw;
+    &__text {
+      text-align: center;
+      font-size: 1.6rem;
+      line-height: 2;
+    }
+  }
+}
+
+.subItemBox {
+  margin-top: 4vw;
+}
+.subItem {
+  position: relative;
+  // 内容
+  &__contents {
+    background: url(../images/bg.png);
+    margin-top: 11.85%;
+    margin-left: 31.1%;
+    min-height: 381px;
+    z-index: 1;
+  }
+  &:first-child &__contents {
+    margin-top: 10.5%;
+  }
+  &__inner {
+    margin-left: 29%;
+  }
+  &__title {
+    font-size: 2.4rem;
+    padding-top: 10.43%;
+    &--2nd {
+      padding-top: 7.5%;
+    }
+  }
+  &__text {
+    font-size: 1.6rem;
+    line-height: 2;
+    padding-top: 40px;
+  }
+  &__caution {
+    font-size: 1.4rem;
+    line-height: 1.5;
+    padding-top: 40px;
+  }
+  // 画像
+  &__img {
+    width: 44.5%;
+    padding-bottom: 25.42%;
+    position: absolute;
+    top: -2.97vw;
+    left: 0;
+    z-index: 2;
+    & img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+    }
+  }
+}
+// 2個目の反転レイアウト
+.subItem:nth-child(2) {
+  .subItem {
+    &__contents {
+      margin-right: 31.1%;
+      margin-left: 0;
+    }
+    &__inner {
+      margin-left: 7.38%;
+    }
+    &__img {
+      left: auto;
+      right: 0;
+    }
+  }
+}
+
+// 温泉>効能
+.kounou {
+  margin-top: 8.15vw;
+  margin-bottom: -2.8vw;
+  & hr {
+    display: block;
+    width: 100%;
+    height: 1px;
+    border: none;
+    background-color: #e7e7e7;
+  }
+  &__title {
+    font-size: 2.6rem;
+    line-height: 3.2rem;
+    text-align: center;
+    margin-top: 4.8vw;
+  }
+  &__inner {
+    width: 45.83vw;
+    margin: 2.4vw auto 0;
+  }
+  &__list {
+    display: flex;
+    font-size: 1.5rem;
+    line-height: 1.5em;
+    padding: 13px 0;
+    & .list__title {
+      width: 25%;
+    }
+    & .list__text {
+      font-size: 1.5rem;
+      flex: 1;
+    }
+    & hr {
+      margin: 9px 0;
+    }
+  }
+  & .barEnd {
+    margin-top: 74px;
+  }
+}
